@@ -1,0 +1,11 @@
+{
+  "name": "qr-code-generator",
+  "version": "1.0.0",
+  "description": "This application generates a qrcode by providing a link or text of choice.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sam George",
+  "license": "ISC"
+}
