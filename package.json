@@ -3,9 +3,15 @@
   "version": "1.0.0",
   "description": "This application generates a qrcode by providing a link or text of choice.",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Sam George",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "express": "^4.19.1",
+    "qr-image": "^3.2.0"
+  }
 }
