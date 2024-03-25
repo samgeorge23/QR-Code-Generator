@@ -58,10 +58,14 @@ form{
     margin-bottom:40px;
 }
 
-#download{
+button{
+    margin-bottom:40px;
     font-size:200%;
     color:white;
     padding:6px;
+}
+
+#download{
     border:4px solid #0D9276;
     background-color:#0D9276;
 }
@@ -69,4 +73,15 @@ form{
 #download:hover{
     background-color:#03C988;
     border-color:#03C988;
+}
+
+#goBack{
+    font-size:125%;
+    border:4px solid #387ADF;
+    background-color:#387ADF;
+}
+
+#goBack:hover{
+    background-color:#008DDA;
+    border-color:#008DDA;
 }

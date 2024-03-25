@@ -28,7 +28,7 @@ app.post("/generate-link",(req,res)=>{
     // because node.js this is server side scripting cannot access dom so cannot use commented code
     // let qr_code = document.querySelector(".qr-code");
     // console.log(qr_code.classList);
-    res.sendFile(__dirname+"/public/index.html");
+    res.sendFile(__dirname+"/public/qr.html");
 });
 
 
