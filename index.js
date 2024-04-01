@@ -18,26 +18,37 @@ const port = 3000;
 app.use(express.static('public'));
 app.use("/generate-link",bodyParser.urlencoded({extended:true}));
 app.get("/",(req,res)=>{
-    res.sendFile(__dirname+"/public/index.html");
+    res.render(__dirname+"/public/index.ejs");
 });
+var randomValue = "";
 
 app.post("/generate-link",(req,res)=>{
+    randomValue = Math.floor(Math.random()*500000)+1;
+    var date = new Date();
+    randomValue = date.toLocaleTimeString().split(" ")[0]+":"+date.getMilliseconds()+randomValue;
+    randomValue = randomValue.replace(/:/g,"");
     let link = req.body["link"];
     let qr_png = qr.image(link,{type:"png",size:8});
-    qr_png.pipe(fs.createWriteStream(__dirname+"/public/images/qr_code.png"));
-    // because node.js this is server side scripting cannot access dom so cannot use commented code
-    // let qr_code = document.querySelector(".qr-code");
-    // console.log(qr_code.classList);
-    res.sendFile(__dirname+"/public/qr.html");
+    const imagePath = path.join(__dirname,`public/images/qr_code${randomValue}.png`);
+    qr_png.pipe(fs.createWriteStream(imagePath));
+    res.render(__dirname+"/public/qr.ejs",{randValue:randomValue});
+
 });
 
+app.get("/delete-qr-code",(req,res)=>{
+    const imagePath = path.join(__dirname,`public/images/qr_code${randomValue}.png`);
+    fs.unlink(imagePath,(err)=>{
+        if(err){
+            console.log("The file has already been deleted!");
+        }
+        res.redirect("/");
+    });
+});
 
 
 app.listen(port, ()=>{
     console.log(`The server has started running on port ${port}.`);
 });
-
-
 
 
 
