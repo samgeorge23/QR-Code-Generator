@@ -9,15 +9,14 @@
 <body>
     <div class="main">
         <h1>QR Code Generator</h1>
-         
+        
         <% if(locals.randValue){ %>
             <img src="./images/qr_code<%= randValue %>.png" alt="qr-code" class="qr-code"><br>
+            <a href="./images/qr_code<%= randValue %>.png" download><button id="download">Download</button></a><br>
         <% }else{ %>
-        <img src="./images/qr_code.png" alt="qr-code" class="qr-code"><br>
+            <img src="./images/qr_code.png" alt="qr-code" class="qr-code"><br>
+            <a href="./images/qr_code.png" download><button id="download">Download</button></a><br>
         <% } %>
-        
-        <a href="./images/qr_code.png" download><button id="download">Download</button></a><br>
-
         
         <a href="/delete-qr-code"><button id="goBack">Generate Another QR Code</button></a>
 
